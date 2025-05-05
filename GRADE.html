@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grade Evaluator</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Grade Evaluator</h2>
+  
+  <input type="number" id="score" placeholder="Enter score (0 - 100)" />
+  <button onclick="checkGrade()">Check Grade</button>
+  
+  <div id="result"></div>
+
+  <script>
+    function checkGrade() {
+      const score = parseInt(document.getElementById("score").value);
+      let message = "";
+
+      if (isNaN(score) || score < 0 || score > 100) {
+        message = "Please enter a valid score between 0 and 100.";
+      } else if (score >= 80) {
+        message = "Grade: EXCELLENT";
+      } else if (score >= 60) {
+        message = "Grade: VERY GOOD";
+      } else if (score >= 50) {
+        message = "Grade: GOOD";
+      } else if (score >= 40) {
+        message = "Grade: FAIR";
+      } else {
+        message = "Grade: POOR";
+      }
+
+      document.getElementById("result").textContent = message;
+    }
+  </script>
+
+</body>
+</html>
